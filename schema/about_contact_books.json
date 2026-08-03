@@ -1,0 +1,62 @@
+{
+  "about": {
+    "hero_title_lines": [
+      "Islamic Coaching",
+      "Institute"
+    ],
+    "hero_tagline": "Guiding Hearts • Illuminating Minds",
+    "version": "1.0.0",
+    "about_paragraphs": [
+      "Islamic Coaching Institute (ICI) is a dedicated platform for spreading authentic Islamic knowledge and education to Muslims around the world.",
+      "Our mission is to make the learning of Quran, Hadith, and Islamic sciences accessible, structured, and easy for every Muslim — young and old."
+    ],
+    "about_tags": [
+      "Quran Education",
+      "Hadith",
+      "Islamic Studies",
+      "Daily Duas"
+    ],
+    "offerings": [
+      "Quran with 16 Line & 15 Line editions",
+      "Complete Prayer & Wudu Guide",
+      "40 Ahadith & Islamic Books",
+      "Daily Duas & 6 Kalimas",
+      "5 Pillars of Islam explained"
+    ],
+    "developer_name": "ICI Tech Team",
+    "developer_org": "Islamic Coaching Institute",
+    "footer_note": "Made with ❤️ for the Muslim Ummah",
+    "copyright": "© 2024 Islamic Coaching Institute"
+  },
+  "contact": {
+    "phone": {
+      "value": "+923001234567",
+      "label": "+92 300 123 4567"
+    },
+    "whatsapp": {
+      "value": "https://wa.me/923001234567",
+      "label": "+92 300 123 4567"
+    },
+    "email": {
+      "value": "info@islamiccoaching.com",
+      "label": "info@islamiccoaching.com"
+    },
+    "address": "123 Main Street, Lahore, Pakistan",
+    "facebook": {
+      "value": "https://facebook.com/islamiccoaching",
+      "label": "Islamic Coaching Institute"
+    },
+    "youtube": {
+      "value": "https://youtube.com/@islamiccoaching",
+      "label": "Islamic Coaching Institute"
+    },
+    "instagram": {
+      "value": "https://instagram.com/islamiccoaching",
+      "label": "@islamiccoaching"
+    },
+    "working_hours": [],
+    "footer_note_ar": "جزاك الله خيرًا",
+    "footer_note_en": "May Allah reward you with goodness"
+  },
+  "books": []
+}

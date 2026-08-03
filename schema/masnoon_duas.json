@@ -1,0 +1,247 @@
+[
+  {
+    "title": "Dua e Subah",
+    "subtitle": "Morning Dua",
+    "icon": "wb_sunny",
+    "arabic": "اَللّٰهُمَّ بِكَ اَصْبَحْنَا وَبِكَ اَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوْتُ وَاِلَيْكَ النُّشُوْرُ",
+    "translation": "\"O Allah, by You we enter the morning, by You we enter the evening, by You we live, by You we die, and to You is the resurrection.\""
+  },
+  {
+    "title": "Dua e Shaam",
+    "subtitle": "Evening Dua",
+    "icon": "dark_mode",
+    "arabic": "اَللّٰهُمَّ بِكَ اَمْسَيْنَا وَبِكَ اَصْبَحْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوْتُ وَاِلَيْكَ الْمَصِيْرُ",
+    "translation": "\"O Allah, by You we enter the evening, by You we enter the morning, by You we live, by You we die, and to You is the return.\""
+  },
+  {
+    "title": "Ghar Se Nikalnay Ki Dua",
+    "subtitle": "Leaving Home",
+    "icon": "home",
+    "arabic": "بِسْمِ اللهِ تَوَكَّلْتُ عَلَى اللهِ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللهِ",
+    "translation": "\"In the name of Allah, I place my trust in Allah, and there is no power and no strength except with Allah.\""
+  },
+  {
+    "title": "Ghar Mein Daakhil Honay Ki Dua",
+    "subtitle": "Entering Home",
+    "icon": "door_front",
+    "arabic": "اَللّٰهُمَّ اِنِّىْ اَسْئَلُكَ خَيْرَ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ",
+    "translation": "\"O Allah, I ask You for the best entry and the best exit.\""
+  },
+  {
+    "title": "Khanay Se Pehle Ki Dua",
+    "subtitle": "Before Eating",
+    "icon": "restaurant",
+    "arabic": "بِسْمِ اللهِ وَعَلٰى بَرَكَةِ اللهِ",
+    "translation": "\"In the name of Allah and with the blessings of Allah.\""
+  },
+  {
+    "title": "Khanay Ky Baad Ki Dua",
+    "subtitle": "After Eating",
+    "icon": "check_circle",
+    "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ",
+    "translation": "\"All praise is for Allah Who fed us, gave us drink, and made us Muslims.\""
+  },
+  {
+    "title": "Wudu Shuru Karnay Ki Dua",
+    "subtitle": "Starting Wudu",
+    "icon": "water_drop",
+    "arabic": "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ",
+    "translation": "\"In the name of Allah, the Most Gracious, the Most Merciful.\""
+  },
+  {
+    "title": "Wudu Ky Baad Ki Dua",
+    "subtitle": "After Wudu",
+    "icon": "water_drop",
+    "arabic": "اَشْهَدُ اَنْ لَّا اِلٰهَ اِلَّا اللهُ وَحْدَهٗ لَا شَرِيْكَ لَهٗ وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهٗ وَرَسُوْلُهٗ",
+    "translation": "\"I bear witness that there is no god but Allah, alone without partner, and I bear witness that Muhammad is His servant and messenger.\""
+  },
+  {
+    "title": "Sonay Ki Dua",
+    "subtitle": "Before Sleeping",
+    "icon": "bed",
+    "arabic": "اَللّٰهُمَّ بِاسْمِكَ اَمُوْتُ وَاَحْيَا",
+    "translation": "\"O Allah, in Your name I die and I live.\""
+  },
+  {
+    "title": "Neend Se Uthny Ki Dua",
+    "subtitle": "Waking Up",
+    "icon": "alarm",
+    "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ اَحْيَانَا بَعْدَ مَا اَمَاتَنَا وَاِلَيْهِ النُّشُوْرُ",
+    "translation": "\"All praise is for Allah Who gave us life after death and to Him is the resurrection.\""
+  },
+  {
+    "title": "Toilet Jaane Ki Dua",
+    "subtitle": "Entering Toilet",
+    "icon": "wc",
+    "arabic": "اَللّٰهُمَّ اِنِّىْ اَعُوْذُبِكَ مِنَ الْخُبُثِ وَالْخَبَآئِثِ",
+    "translation": "\"O Allah, I seek Your protection from male and female devils.\""
+  },
+  {
+    "title": "Toilet Se Nikalnay Ki Dua",
+    "subtitle": "Leaving Toilet",
+    "icon": "exit_to_app",
+    "arabic": "غُفْرَانَكَ",
+    "translation": "\"I seek Your forgiveness.\""
+  },
+  {
+    "title": "Masjid Mein Daakhil Honay Ki Dua",
+    "subtitle": "Entering Mosque",
+    "icon": "mosque",
+    "arabic": "اَللّٰهُمَّ افْتَحْ لِيْ اَبْوَابَ رَحْمَتِكَ",
+    "translation": "\"O Allah, open for me the doors of Your mercy.\""
+  },
+  {
+    "title": "Masjid Se Nikalnay Ki Dua",
+    "subtitle": "Leaving Mosque",
+    "icon": "logout",
+    "arabic": "اَللّٰهُمَّ اِنِّىْ اَسْئَلُكَ مِنْ فَضْلِكَ",
+    "translation": "\"O Allah, I ask You from Your bounty.\""
+  },
+  {
+    "title": "Safar Ki Dua",
+    "subtitle": "Travelling",
+    "icon": "directions_car",
+    "arabic": "سُبْحَانَ الَّذِيْ سَخَّرَلَنَا هٰذَا وَمَا كُنَّا لَهٗ مُقْرِنِيْنَ وَاِنَّآ اِلٰى رَبِّنَا لَمُنْقَلِبُوْنَ",
+    "translation": "\"Glory be to Him Who has subjected this to us, and we were not able to do it, and surely to our Lord we must return.\""
+  },
+  {
+    "title": "Beemar Ki Iyaadat Ki Dua",
+    "subtitle": "Visiting the Sick",
+    "icon": "local_hospital",
+    "arabic": "لَا بَاْسَ طَهُوْرٌ اِنْ شَآءَ اللهُ",
+    "translation": "\"Do not worry, it is a purification, if Allah wills.\""
+  },
+  {
+    "title": "Dua e Qunoot",
+    "subtitle": "Witr Prayer",
+    "icon": "favorite",
+    "arabic": "اَللّٰهُمَّ اِنَّا نَسْتَعِيْنُكَ وَنَسْتَغْفِرُكَ وَنُؤْمِنُ بِكَ وَنَتَوَكَّلُ عَلَيْكَ وَنُثْنِيْ عَلَيْكَ الْخَيْرَ",
+    "translation": "\"O Allah, we seek Your help and ask Your forgiveness and believe in You and trust in You and praise You in the best way.\""
+  },
+  {
+    "title": "Baarish Ki Dua",
+    "subtitle": "During Rain",
+    "icon": "cloud",
+    "arabic": "اَللّٰهُمَّ صَيِّبًا نَافِعًا",
+    "translation": "\"O Allah, make it a beneficial rain.\""
+  },
+  {
+    "title": "Aandhi Ki Dua",
+    "subtitle": "During Storm",
+    "icon": "thunderstorm",
+    "arabic": "اَللّٰهُمَّ اِنِّىْ اَسْئَلُكَ خَيْرَهَا وَخَيْرَ مَا فِيْهَا وَاَعُوْذُبِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيْهَا",
+    "translation": "\"O Allah, I ask You for its good and the good within it, and I seek refuge in You from its evil and the evil within it.\""
+  },
+  {
+    "title": "Naya Chand Dekhne Ki Dua",
+    "subtitle": "Seeing New Moon",
+    "icon": "search",
+    "arabic": "اَللّٰهُ اَكْبَرُ اَللّٰهُمَّ اَهِلَّهٗ عَلَيْنَا بِالْيُمْنِ وَالْاِيْمَانِ",
+    "translation": "\"Allah is the Greatest. O Allah, let this moon appear over us with blessings and faith.\""
+  },
+  {
+    "title": "Qarz Ada Honay Ki Dua",
+    "subtitle": "Paying Off Debt",
+    "icon": "credit_card",
+    "arabic": "اَللّٰهُمَّ اكْفِنِيْ بِحَلَالِكَ عَنْ حَرَامِكَ وَاَغْنِنِيْ بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+    "translation": "\"O Allah, suffice me with what You have made lawful against what You have forbidden, and make me independent with Your bounty.\""
+  },
+  {
+    "title": "Naye Bachay Ki Dua",
+    "subtitle": "Newborn Baby",
+    "icon": "child_care",
+    "arabic": "بَارَكَ اللهُ لَكَ فِي الْمَوْهُوْبِ لَكَ وَشَكَرْتَ الْوَاهِبَ وَبَلَغَ اَشُدَّهٗ وَرُزِقْتَ بِرَّهٗ",
+    "translation": "\"May Allah bless you in what was given to you, may you be grateful to the Giver, and may he reach maturity and may you be granted his righteousness.\""
+  },
+  {
+    "title": "Ilm Mein Izafa Ki Dua",
+    "subtitle": "Seeking Knowledge",
+    "icon": "school",
+    "arabic": "رَبِّ زِدْنِيْ عِلْمًا",
+    "translation": "\"O my Lord, increase me in knowledge.\""
+  },
+  {
+    "title": "Gham Aur Pareshani Ki Dua",
+    "subtitle": "Grief & Worry",
+    "icon": "psychology",
+    "arabic": "اَللّٰهُمَّ اِنِّىْ عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ اَمَتِكَ نَاصِيَتِيْ بِيَدِكَ",
+    "translation": "\"O Allah, I am Your servant, son of Your servant, son of Your maidservant. My forelock is in Your hand.\""
+  },
+  {
+    "title": "Beemar Hone Ki Dua",
+    "subtitle": "When Sick",
+    "icon": "healing",
+    "arabic": "اَللّٰهُمَّ اَذْهِبِ الْبَاْسَ رَبَّ النَّاسِ اشْفِ وَاَنْتَ الشَّافِيْ",
+    "translation": "\"O Allah, remove the hardship, O Lord of mankind, grant cure, for You are the Healer.\""
+  },
+  {
+    "title": "Shaitaan Se Bachne Ki Dua",
+    "subtitle": "Protection from Shaitan",
+    "icon": "shield",
+    "arabic": "اَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ",
+    "translation": "\"I seek refuge in Allah from the accursed devil.\""
+  },
+  {
+    "title": "Aainay Mein Dekhne Ki Dua",
+    "subtitle": "Looking in Mirror",
+    "icon": "looks",
+    "arabic": "اَللّٰهُمَّ اَنْتَ حَسَّنْتَ خَلْقِيْ فَحَسِّنْ خُلُقِيْ",
+    "translation": "\"O Allah, just as You have made my appearance beautiful, make my character beautiful too.\""
+  },
+  {
+    "title": "Bazaar Mein Daakhil Honay Ki Dua",
+    "subtitle": "Entering Market",
+    "icon": "store",
+    "arabic": "لَا اِلٰهَ اِلَّا اللهُ وَحْدَهٗ لَا شَرِيْكَ لَهٗ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِيْ وَيُمِيْتُ وَهُوَ حَيٌّ لَّا يَمُوْتُ",
+    "translation": "\"There is no god but Allah, alone without partner. His is the dominion and His is the praise. He gives life and causes death and He is living and never dies.\""
+  },
+  {
+    "title": "Nikah Ki Dua",
+    "subtitle": "At Marriage",
+    "icon": "handshake",
+    "arabic": "بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِيْ خَيْرٍ",
+    "translation": "\"May Allah bless you and shower blessings upon you and join you together in goodness.\""
+  },
+  {
+    "title": "Istighfar",
+    "subtitle": "Seeking Forgiveness",
+    "icon": "circle",
+    "arabic": "اَسْتَغْفِرُ اللهَ الَّذِيْ لَا اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ وَاَتُوْبُ اِلَيْهِ",
+    "translation": "\"I seek forgiveness from Allah, besides Whom there is no god, the Ever-Living, the Self-Sustaining, and I turn to Him in repentance.\""
+  },
+  {
+    "title": "Achha Kaam Khatam Honay Ki Dua",
+    "subtitle": "Completing Good Work",
+    "icon": "sports_soccer",
+    "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ بِنِعْمَتِهٖ تَتِمُّ الصَّالِحَاتُ",
+    "translation": "\"All praise is for Allah by Whose blessing all good deeds are completed.\""
+  },
+  {
+    "title": "Sadqa Dene Ki Dua",
+    "subtitle": "Giving Charity",
+    "icon": "volunteer_activism",
+    "arabic": "رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيْعُ الْعَلِيْمُ",
+    "translation": "\"Our Lord, accept from us. Indeed You are the All-Hearing, the All-Knowing.\""
+  },
+  {
+    "title": "Mushkil Waqt Ki Dua",
+    "subtitle": "Times of Difficulty",
+    "icon": "airline_seat_flat",
+    "arabic": "اِنَّا لِلّٰهِ وَاِنَّآ اِلَيْهِ رٰجِعُوْنَ",
+    "translation": "\"Indeed we belong to Allah and indeed to Him we shall return.\""
+  },
+  {
+    "title": "Darood Ibrahim",
+    "subtitle": "Sending Blessings",
+    "icon": "star",
+    "arabic": "اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَّعَلٰى اٰلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى اِبْرَاهِيْمَ وَعَلٰى اٰلِ اِبْرَاهِيْمَ",
+    "translation": "\"O Allah, send blessings upon Muhammad and the family of Muhammad, as You sent blessings upon Ibrahim and the family of Ibrahim.\""
+  },
+  {
+    "title": "Sayyidul Istighfar",
+    "subtitle": "Master of Forgiveness",
+    "icon": "auto_awesome",
+    "arabic": "اَللّٰهُمَّ اَنْتَ رَبِّيْ لَا اِلٰهَ اِلَّا اَنْتَ خَلَقْتَنِيْ وَاَنَا عَبْدُكَ وَاَنَا عَلٰى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ",
+    "translation": "\"O Allah, You are my Lord, there is no god but You. You created me and I am Your servant, and I abide by Your covenant and promise as best I can.\""
+  }
+]

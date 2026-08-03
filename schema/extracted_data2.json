@@ -1,0 +1,44 @@
+{
+  "wuduSteps": [
+    {
+      "title": "Niyyah & Bismillah",
+      "icon": "favorite",
+      "desc": "Make the intention in your heart to perform Wudu purely for the sake of Allah, and say “Bismillah”."
+    },
+    {
+      "title": "Wash Hands",
+      "icon": "back_hand",
+      "desc": "Wash both hands up to the wrists three times, ensuring water reaches between the fingers."
+    },
+    {
+      "title": "Rinse Mouth",
+      "icon": "air",
+      "desc": "Take water into the mouth and rinse thoroughly three times (Madmadah)."
+    },
+    {
+      "title": "Rinse Nose",
+      "icon": "air",
+      "desc": "Sniff water gently into the nostrils and blow it out, three times (Istinshaq)."
+    },
+    {
+      "title": "Wash Face",
+      "icon": "face",
+      "desc": "Wash the face from forehead to chin and ear to ear, three times."
+    },
+    {
+      "title": "Wash Arms",
+      "icon": "front_hand",
+      "desc": "Wash the right arm then the left arm up to and including the elbows, three times each."
+    },
+    {
+      "title": "Wipe Head & Ears",
+      "icon": "touch_app",
+      "desc": "Wipe the head once with wet hands, then wipe the inside and outside of both ears."
+    },
+    {
+      "title": "Wash Feet",
+      "icon": "footprint",
+      "desc": "Wash the right foot then the left foot up to and including the ankles, three times each."
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+<div class="screen" id="screen-daily-duas">
+
+  <!-- Top AppBar -->
+  <header class="w-full top-0 sticky z-50 bg-surface h-16 shadow-sm">
+    <div class="flex items-center px-container-padding h-16">
+      <button onclick="showScreen('screen-home')" class="mr-4 active:scale-95 transition-transform duration-200 text-primary">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1 class="font-headline-sm text-headline-sm text-primary">Daily Duas</h1>
+    </div>
+  </header>
+
+  <main class="px-container-padding py-lg pb-32">
+
+    <!-- Hero Banner -->
+    <div class="relative overflow-hidden rounded-xl mb-lg p-xl text-white" style="background:linear-gradient(135deg,#0EA5E9,#0284C7)">
+      <div class="relative z-10">
+        <h2 class="font-headline-md text-headline-md mb-xs">Spiritual Growth</h2>
+        <p class="font-body-md text-body-md opacity-90 max-w-xs">Nourish your soul with daily supplications and core beliefs of Islam.</p>
+      </div>
+      <div class="absolute -right-8 -bottom-8 opacity-20">
+        <span class="material-symbols-outlined" style="font-size:120px">auto_stories</span>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="space-y-md">
+
+      <!-- Daily Masnoon Duas -->
+      <div class="card-hover group flex items-center p-md bg-white border border-surface-container-high rounded-xl shadow-[0_4px_12px_rgba(14,165,233,0.06)] cursor-pointer active:scale-[0.98] transition-transform" onclick="showScreen('screen-masnoon-duas')">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary-container/20 text-primary rounded-lg mr-md">
+          <span class="material-symbols-outlined">stars</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Daily Masnoon Duas</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Morning &amp; Evening Supplications</p>
+        </div>
+        <span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+      </div>
+
+      <!-- 6 Kalimas -->
+      <div class="card-hover group flex items-center p-md bg-white border border-surface-container-high rounded-xl shadow-[0_4px_12px_rgba(14,165,233,0.06)] cursor-pointer active:scale-[0.98] transition-transform" onclick="document.getElementById('kalimas-modal').classList.remove('hidden')">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary-container/20 text-primary rounded-lg mr-md">
+          <span class="material-symbols-outlined">format_list_numbered</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-body-lg text-body-lg font-semibold text-on-surface">6 Kalimas</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Foundations of faith</p>
+        </div>
+        <span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+      </div>
+
+      <!-- Ayat-ul-Kursi -->
+      <div class="card-hover group flex items-center p-md bg-white border border-surface-container-high rounded-xl shadow-[0_4px_12px_rgba(14,165,233,0.06)] cursor-pointer active:scale-[0.98] transition-transform" onclick="document.getElementById('ayat-kursi-modal').classList.remove('hidden')">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary-container/20 text-primary rounded-lg mr-md">
+          <span class="material-symbols-outlined">star_outline</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Ayat-ul-Kursi</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">The Throne Verse</p>
+        </div>
+        <span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+      </div>
+
+      <!-- Dua-e-Qunoot -->
+      <div class="card-hover group flex items-center p-md bg-white border border-surface-container-high rounded-xl shadow-[0_4px_12px_rgba(14,165,233,0.06)] cursor-pointer active:scale-[0.98] transition-transform" onclick="document.getElementById('dua-qunoot-modal').classList.remove('hidden')">
+        <div class="w-12 h-12 flex items-center justify-center bg-primary-container/20 text-primary rounded-lg mr-md">
+          <span class="material-symbols-outlined">volunteer_activism</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Dua-e-Qunoot</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Recited in Witr prayers</p>
+        </div>
+        <span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+      </div>
+
+      <!-- Core Beliefs (Aqaid) — expandable -->
+      <div class="bg-white border border-surface-container-high rounded-xl shadow-[0_4px_12px_rgba(14,165,233,0.06)] overflow-hidden">
+        <div class="flex items-center p-md cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleDuasSubmenu()">
+          <div class="w-12 h-12 flex items-center justify-center bg-primary-container/20 text-primary rounded-lg mr-md">
+            <span class="material-symbols-outlined">verified_user</span>
+          </div>
+          <div class="flex-grow">
+            <h3 class="font-body-lg text-body-lg font-semibold text-on-surface">Core Beliefs (Aqaid)</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Essential articles of faith</p>
+          </div>
+          <span class="material-symbols-outlined text-outline-variant transition-transform duration-300" id="duas-expand-icon">chevron_right</span>
+        </div>
+        <div class="hidden border-t border-surface-container-low bg-surface-bright pb-md px-md" id="duas-submenu">
+          <!-- Iman-e-Mujmal -->
+          <div class="flex items-center mt-md p-md bg-white border border-surface-container-low rounded-lg cursor-pointer active:scale-[0.98] transition-transform" onclick="document.getElementById('iman-mujmal-modal').classList.remove('hidden'); document.getElementById('iman-mujmal-modal').style.opacity='1'">
+            <span class="material-symbols-outlined text-primary mr-md">radio_button_checked</span>
+            <div class="flex-grow">
+              <span class="font-body-md text-body-md font-medium">Iman-e-Mujmal</span>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[18px]">chevron_right</span>
+          </div>
+          <!-- Iman-e-Mufassal -->
+          <div class="flex items-center mt-sm p-md bg-white border border-surface-container-low rounded-lg cursor-pointer active:scale-[0.98] transition-transform" onclick="document.getElementById('iman-mufassal-modal').classList.remove('hidden'); document.getElementById('iman-mufassal-modal').style.opacity='1'">
+            <span class="material-symbols-outlined text-primary mr-md">radio_button_checked</span>
+            <div class="flex-grow">
+              <span class="font-body-md text-body-md font-medium">Iman-e-Mufassal</span>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[18px]">chevron_right</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Iman-e-Mujmal Modal -->
+  <div id="iman-mujmal-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-md bg-black/40 hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white w-full max-w-xs rounded-xl shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between p-md border-b border-surface-container-low">
+        <h2 class="font-headline-sm text-headline-sm text-primary">Iman-e-Mujmal</h2>
+        <button onclick="document.getElementById('iman-mujmal-modal').classList.add('hidden')" class="text-on-surface-variant"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="p-lg text-center overflow-y-auto max-h-[55vh]">
+        <p class="font-arabic-display text-arabic-display text-on-surface mb-md leading-relaxed" dir="rtl">آمَنْتُ بِاللّٰهِ كَمَا هُوَ بِأَسْمَائِهِ وَصِفَاتِهِ وَقَبِلْتُ جَمِيعَ أَحْكَامِهِ إِقْرَارًا بِاللِّسَانِ وَتَصْدِيقًا بِالْقَلْبِ</p>
+        <p class="font-body-md text-body-md text-on-surface-variant italic">"I believe in Allah as He is, with all His names and attributes, and I accept all His commands by tongue and confirm by heart."</p>
+      </div>
+      <div class="p-md bg-surface-container-low flex justify-end">
+        <button onclick="document.getElementById('iman-mujmal-modal').classList.add('hidden')" class="px-md py-1 bg-primary text-white rounded-full font-label-sm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Iman-e-Mufassal Modal -->
+  <div id="iman-mufassal-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-md bg-black/40 hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white w-full max-w-xs rounded-xl shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between p-md border-b border-surface-container-low">
+        <h2 class="font-headline-sm text-headline-sm text-primary">Iman-e-Mufassal</h2>
+        <button onclick="document.getElementById('iman-mufassal-modal').classList.add('hidden')" class="text-on-surface-variant"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="p-lg text-center overflow-y-auto max-h-[55vh]">
+        <p class="font-arabic-display text-arabic-display text-on-surface mb-md leading-relaxed" dir="rtl">آمَنْتُ بِاللّٰهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ وَالْقَدَرِ خَيْرِهِ وَشَرِّهِ مِنَ اللّٰهِ تَعَالَى وَالْبَعْثِ بَعْدَ الْمَوْتِ</p>
+        <p class="font-body-md text-body-md text-on-surface-variant italic">"I believe in Allah, His angels, His books, His messengers, the Last Day, and in destiny — its good and evil from Allah, and in resurrection after death."</p>
+      </div>
+      <div class="p-md bg-surface-container-low flex justify-end">
+        <button onclick="document.getElementById('iman-mufassal-modal').classList.add('hidden')" class="px-md py-1 bg-primary text-white rounded-full font-label-sm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ayat-ul-Kursi Modal -->
+  <div id="ayat-kursi-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-md bg-black/40 hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white w-full max-w-xs rounded-xl shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between p-md border-b border-surface-container-low">
+        <h2 class="font-headline-sm text-headline-sm text-primary">Ayat-ul-Kursi</h2>
+        <button onclick="document.getElementById('ayat-kursi-modal').classList.add('hidden')" class="text-on-surface-variant"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="p-lg text-center overflow-y-auto max-h-[55vh]">
+        <p class="font-arabic-display text-arabic-display text-on-surface mb-md leading-relaxed" dir="rtl">اللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۚ لَا تَاْخُذُهٗ سِنَةٌ وَّلَا نَوْمٌ ۚ لَهٗ مَا فِي السَّمٰوٰتِ وَمَا فِي الْاَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ اِلَّا بِاِذْنِهٖ ۚ يَعْلَمُ مَا بَيْنَ اَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ اِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْاَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ</p>
+        <p class="font-body-md text-body-md text-on-surface-variant italic">"Allah — there is no deity except Him, the Ever-Living, the Sustainer. Neither drowsiness nor sleep overtakes Him. To Him belongs all in the heavens and earth. None can intercede except by His permission. He knows what is before and after them. His Kursi extends over the heavens and earth, and their preservation tires Him not. He is the Most High, the Most Great."</p>
+      </div>
+      <div class="p-md bg-surface-container-low flex justify-end">
+        <button onclick="document.getElementById('ayat-kursi-modal').classList.add('hidden')" class="px-md py-1 bg-primary text-white rounded-full font-label-sm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dua-e-Qunoot Modal -->
+  <div id="dua-qunoot-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-md bg-black/40 hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white w-full max-w-xs rounded-xl shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between p-md border-b border-surface-container-low">
+        <h2 class="font-headline-sm text-headline-sm text-primary">Dua-e-Qunoot</h2>
+        <button onclick="document.getElementById('dua-qunoot-modal').classList.add('hidden')" class="text-on-surface-variant"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="p-lg text-center overflow-y-auto max-h-[55vh]">
+        <p class="font-arabic-display text-arabic-display text-on-surface mb-md leading-relaxed" dir="rtl">اَللّٰهُمَّ اِنَّا نَسْتَعِيْنُكَ وَنَسْتَغْفِرُكَ وَنُؤْمِنُ بِكَ وَنَتَوَكَّلُ عَلَيْكَ وَنُثْنِيْ عَلَيْكَ الْخَيْرَ وَنَشْكُرُكَ وَلَا نَكْفُرُكَ وَنَخْلَعُ وَنَتْرُكُ مَنْ يَّفْجُرُكَ ۔ اَللّٰهُمَّ اِيَّاكَ نَعْبُدُ وَلَكَ نُصَلِّيْ وَنَسْجُدُ وَاِلَيْكَ نَسْعٰى وَنَحْفِدُ وَنَرْجُوْ رَحْمَتَكَ وَنَخْشٰى عَذَابَكَ اِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ</p>
+        <p class="font-body-md text-body-md text-on-surface-variant italic">"O Allah! We seek Your help, ask Your forgiveness, believe in You, and trust You. We praise You, thank You, and are not ungrateful. We forsake those who disobey You. O Allah! We worship only You, pray and prostrate to You, hasten toward You, and hope for Your mercy while fearing Your punishment. Surely Your punishment overtakes the disbelievers."</p>
+      </div>
+      <div class="p-md bg-surface-container-low flex justify-end">
+        <button onclick="document.getElementById('dua-qunoot-modal').classList.add('hidden')" class="px-md py-1 bg-primary text-white rounded-full font-label-sm">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 6 Kalimas Modal -->
+  <div id="kalimas-modal" class="fixed inset-0 z-[100] flex items-end justify-center bg-black/40 hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="bg-white w-full max-w-lg rounded-t-2xl shadow-xl overflow-hidden" style="max-height:88vh; display:flex; flex-direction:column;">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-lg py-md border-b border-surface-container-low flex-shrink-0">
+        <div>
+          <h2 class="font-headline-sm text-headline-sm text-primary">6 Kalimas</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Foundations of Faith</p>
+        </div>
+        <button onclick="document.getElementById('kalimas-modal').classList.add('hidden')" class="text-on-surface-variant w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <!-- Kalimas List -->
+      <div class="overflow-y-auto flex-1 px-lg py-md space-y-lg">
+
+        <!-- Kalima 1 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-primary to-primary-container px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">1</span>
+            <span class="text-white font-semibold font-body-md">Kalima Tayyiba</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">لَآ اِلٰهَ اِلَّا اللهُ مُحَمَّدٌ رَّسُوْلُ اللهِ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"There is no god but Allah, Muhammad is the Messenger of Allah."</p>
+          </div>
+        </div>
+
+        <!-- Kalima 2 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-[#006c49] to-[#00b17b] px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">2</span>
+            <span class="text-white font-semibold font-body-md">Kalima Shahadat</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">اَشْهَدُ اَنْ لَّآ اِلٰهَ اِلَّا اللهُ وَحْدَهٗ لَا شَرِيْكَ لَهٗ وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهٗ وَرَسُوْلُهٗ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"I bear witness that there is no god but Allah, alone without any partner, and I bear witness that Muhammad is His servant and messenger."</p>
+          </div>
+        </div>
+
+        <!-- Kalima 3 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-[#00668a] to-[#40c2fd] px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">3</span>
+            <span class="text-white font-semibold font-body-md">Kalima Tamjeed</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">سُبْحَانَ اللهِ وَالْحَمْدُ لِلّٰهِ وَلَآ اِلٰهَ اِلَّا اللهُ وَاللهُ اَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللهِ الْعَلِيِّ الْعَظِيْمِ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"Glory be to Allah, and praise be to Allah, and there is no god but Allah, and Allah is the Greatest, and there is no power and no strength except with Allah, the Most High, the Most Great."</p>
+          </div>
+        </div>
+
+        <!-- Kalima 4 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-[#7c3aed] to-[#a78bfa] px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">4</span>
+            <span class="text-white font-semibold font-body-md">Kalima Tauheed</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">لَآ اِلٰهَ اِلَّا اللهُ وَحْدَهٗ لَا شَرِيْكَ لَهٗ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيٖ وَيُمِيْتُ وَهُوَ حَيٌّ لَّا يَمُوْتُ اَبَدًا اَبَدًا ذُو الْجَلَالِ وَالْاِكْرَامِ بِيَدِهِ الْخَيْرُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"There is no god but Allah, alone without any partner. To Him belongs the kingdom and to Him belongs all praise. He gives life and causes death, and He is Ever-Living and will never die. Ever. He is the Lord of Majesty and Honor. In His hand is all goodness, and He has power over all things."</p>
+          </div>
+        </div>
+
+        <!-- Kalima 5 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-[#b45309] to-[#f59e0b] px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">5</span>
+            <span class="text-white font-semibold font-body-md">Kalima Astaghfar</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">اَسْتَغْفِرُ اللهَ رَبِّيْ مِنْ كُلِّ ذَنْبٍ اَذْنَبْتُهٗ عَمَدًا اَوْ خَطَاً سِرًّا اَوْ عَلَانِيَةً وَّاَتُوْبُ اِلَيْهِ مِنَ الذَّنْبِ الَّذِيْ اَعْلَمُ وَمِنَ الذَّنْبِ الَّذِيْ لَآ اَعْلَمُ اِنَّكَ اَنْتَ عَلَّامُ الْغُيُوْبِ وَسَتَّارُ الْعُيُوْبِ وَغَفَّارُ الذُّنُوْبِ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللهِ الْعَلِيِّ الْعَظِيْمِ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"I seek forgiveness from Allah, my Lord, for every sin I have committed intentionally or by mistake, secretly or openly. I repent to Him for sins I know and those I do not know. Surely You are the Knower of the unseen, the Concealer of faults, and the Forgiver of sins."</p>
+          </div>
+        </div>
+
+        <!-- Kalima 6 -->
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-surface-container-high">
+          <div class="bg-gradient-to-r from-[#be123c] to-[#fb7185] px-md py-sm flex items-center gap-2">
+            <span class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs">6</span>
+            <span class="text-white font-semibold font-body-md">Kalima Radde Kufr</span>
+          </div>
+          <div class="p-md text-center">
+            <p class="font-arabic-body text-arabic-body text-on-surface leading-relaxed mb-sm" dir="rtl">اَللّٰهُمَّ اِنِّيْ اَعُوْذُبِكَ مِنْ اَنْ اُشْرِكَ بِكَ شَيْئًا وَّاَنَا اَعْلَمُ بِهٖ وَاَسْتَغْفِرُكَ لِمَا لَآ اَعْلَمُ بِهٖ تُبْتُ عَنْهُ وَتَبَرَّاْتُ مِنَ الْكُفْرِ وَالشِّرْكِ وَالْكِذْبِ وَالْغِيْبَةِ وَالْبِدْعَةِ وَالنَّمِيْمَةِ وَالْفَوَاحِشِ وَالْبُهْتَانِ وَالْمَعَاصِيْ كُلِّهَا وَاَسْلَمْتُ وَاَقُوْلُ لَآ اِلٰهَ اِلَّا اللهُ مُحَمَّدٌ رَّسُوْلُ اللهِ</p>
+            <p class="font-body-md text-body-md text-on-surface-variant italic">"O Allah! I seek refuge in You from knowingly associating any partner with You, and I seek Your forgiveness for those sins I am unaware of. I repent from disbelief, polytheism, lies, backbiting, innovation, slander, shameful acts, false accusations, and all sins. I submit to You and declare: There is no god but Allah, Muhammad is the Messenger of Allah."</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="px-lg py-md bg-surface-container-low border-t border-surface-container-high flex-shrink-0 flex justify-end">
+        <button onclick="document.getElementById('kalimas-modal').classList.add('hidden')" class="px-md py-2 bg-primary text-white rounded-full font-label-sm text-label-sm">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end screen-daily-duas -->

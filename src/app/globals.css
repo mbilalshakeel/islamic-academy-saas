@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ICI DESIGN SYSTEM — shared tokens (approved proposal, applied)
+   ============================================================
+   - Neutral scaffold is IDENTICAL for every tenant (backgrounds,
+     borders, 3-tier text color). Tenant primary/secondary colors
+     (--tenant-primary / --tenant-secondary, set per-request by
+     ThemeStyleTag) are layered on top for buttons/links/active
+     states/accents ONLY — never mixed into the scaffold itself.
+   - Light mode is the default for every surface (public app +
+     both admin panels). Dark mode is available only where a
+     tenant has explicitly set tenant_branding.dark_mode_default
+     = true (applied via a `dark` class on <html>, see
+     ThemeStyleTag.tsx) — never defaulted from OS/browser
+     preference and never applied to the two internal admin
+     panels (Super Admin / Institute Admin), which always render
+     in light mode regardless of a tenant's public-app choice.
+   ============================================================ */
+:root {
+  /* ---- Neutral scaffold (tenant-independent) ---- */
+  --surface-0: #F7F8FA;
+  --surface-1: #FFFFFF;
+  --surface-2: #F1F3F6;
+  --border-subtle: #E5E8EC;
+  --border-strong: #D0D5DC;
+  --text-primary: #10151C;
+  --text-secondary: #4B5563;
+  --text-tertiary: #8A93A0;
+  --success: #16A34A;
+  --success-bg: #F0FDF4;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --danger: #DC2626;
+  --danger-bg: #FEF2F2;
+  --info: #0369A1;
+
+  /* ---- Type scale ---- */
+  --fs-display: 2.25rem;
+  --fs-h1: 1.75rem;
+  --fs-h2: 1.375rem;
+  --fs-h3: 1.125rem;
+  --fs-body-lg: 1.0625rem;
+  --fs-body: 0.9375rem;
+  --fs-caption: 0.8125rem;
+  --fs-micro: 0.6875rem;
+
+  /* Generous Arabic/Urdu scale — deliberately larger + far more
+     line-height than Latin body text (2.0-2.1x vs 1.6x) so
+     diacritics/descenders never feel cramped. */
+  --fs-ar-display: 2rem;
+  --fs-ar-body: 1.375rem;
+  --fs-ur-body: 1.25rem;
+  --lh-arabic: 2.1;
+  --lh-urdu: 2.0;
+  --lh-body: 1.6;
+
+  /* ---- Spacing (4px base) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 48px;
+  --sp-10: 64px;
+
+  /* ---- Radius ---- */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-full: 999px;
+
+  /* ---- Shadow (soft, neutral-tinted — never a heavy black drop-shadow) ---- */
+  --shadow-xs: 0 1px 2px rgba(16, 21, 28, 0.05);
+  --shadow-sm: 0 2px 8px rgba(16, 21, 28, 0.07);
+  --shadow-md: 0 4px 16px rgba(16, 21, 28, 0.09);
+  --shadow-lg: 0 16px 40px rgba(16, 21, 28, 0.14);
+
+  /* ---- Tenant accent (defaults; overridden per-request by ThemeStyleTag) ---- */
+  --tenant-primary: #0369A1;
+  --tenant-secondary: #0EA5E9;
+  --tenant-on-primary: #FFFFFF;
+  --tenant-background: #FFFFFF;
+  --tenant-text: #10151C;
+  --tenant-ui-font: 'Inter', sans-serif;
+  --tenant-arabic-font: 'Amiri', serif;
+  --tenant-urdu-font: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Dark mode: same semantic roles, re-mapped (not just inverted).
+   Applied only via an explicit `dark` class placed on <html> by
+   ThemeStyleTag when a tenant's dark_mode_default = true — never
+   from prefers-color-scheme, and never inside the admin panels. */
+html.dark {
+  --surface-0: #0B0F14;
+  --surface-1: #141A21;
+  --surface-2: #1C232C;
+  --border-subtle: #262E38;
+  --border-strong: #333D4A;
+  --text-primary: #EDF1F5;
+  --text-secondary: #A7B0BC;
+  --text-tertiary: #6B7482;
+  --success: #34D399;
+  --success-bg: rgba(52, 211, 153, 0.12);
+  --warning: #FBBF24;
+  --warning-bg: rgba(251, 191, 36, 0.12);
+  --danger: #F87171;
+  --danger-bg: rgba(248, 113, 113, 0.12);
+  --info: #38BDF8;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--tenant-ui-font);
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+/* Visible keyboard focus everywhere — never suppressed, always
+   replaced with an explicit ring instead of `outline: none`. */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tenant-primary) 35%, transparent);
+  border-radius: var(--r-sm);
+}
+
+/* ---- Tenant-driven utility classes (used by public app + admin) ---- */
+.tenant-arabic {
+  font-family: var(--tenant-arabic-font);
+  line-height: var(--lh-arabic);
+  direction: rtl;
+}
+.tenant-urdu {
+  font-family: var(--tenant-urdu-font);
+  line-height: var(--lh-urdu);
+  direction: rtl;
+}
+.tenant-primary-bg { background-color: var(--tenant-primary); }
+.tenant-secondary-bg { background-color: var(--tenant-secondary); }
+.tenant-primary-text { color: var(--tenant-primary); }
+.tenant-on-primary { color: var(--tenant-on-primary); }
+/* Page-level background for the PUBLIC app only — reads the tenant's own
+   background_color (near-white/near-black by preset design), kept
+   separate from `body`'s neutral --surface-0 default so the two admin
+   panels never inherit a tenant's custom page background. */
+.tenant-page-bg { background-color: var(--tenant-background); min-height: 100vh; }
+
+/* ============================================================
+   CORE COMPONENT CLASSES
+   One definition of each, reused identically everywhere instead
+   of one-off Tailwind utility soup per screen.
+   ============================================================ */
+
+/* --- Buttons --- */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--r-md);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.ds-btn:active { transform: translateY(1px); }
+.ds-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+.ds-btn-sm { min-height: 36px; padding: 0 14px; font-size: var(--fs-caption); border-radius: var(--r-sm); }
+
+.ds-btn-primary {
+  background: var(--tenant-primary);
+  color: var(--tenant-on-primary);
+  box-shadow: var(--shadow-xs);
+}
+.ds-btn-primary:hover:not(:disabled) { filter: brightness(0.92); }
+
+.ds-btn-secondary {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+.ds-btn-secondary:hover:not(:disabled) { background: var(--surface-2); }
+
+.ds-btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.ds-btn-ghost:hover:not(:disabled) { background: var(--surface-2); color: var(--text-primary); }
+
+.ds-btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.ds-btn-danger:hover:not(:disabled) { filter: brightness(0.92); }
+
+/* --- Cards --- */
+.ds-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  box-shadow: var(--shadow-xs);
+}
+@media (min-width: 768px) {
+  .ds-card { padding: var(--sp-6); }
+}
+.ds-card-interactive {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.ds-card-interactive:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+
+/* --- Form inputs --- */
+.ds-label {
+  display: block;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.ds-input, .ds-select, .ds-textarea {
+  width: 100%;
+  min-height: 44px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  padding: 0 14px;
+  font-size: var(--fs-body);
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.ds-textarea { min-height: 96px; padding: 10px 14px; resize: vertical; }
+.ds-input:focus, .ds-select:focus, .ds-textarea:focus {
+  outline: none;
+  border-color: var(--tenant-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tenant-primary) 22%, transparent);
+}
+.ds-input.ds-input-error, .ds-textarea.ds-input-error {
+  border-color: var(--danger);
+}
+.ds-helper { font-size: var(--fs-caption); color: var(--text-tertiary); margin-top: 6px; }
+.ds-helper-error { color: var(--danger); }
+
+/* --- Badge --- */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  background: color-mix(in srgb, var(--tenant-primary) 14%, var(--surface-1));
+  color: var(--tenant-primary);
+  white-space: nowrap;
+}
+.ds-badge-neutral { background: var(--surface-2); color: var(--text-secondary); }
+.ds-badge-success { background: var(--success-bg); color: var(--success); }
+.ds-badge-warning { background: var(--warning-bg); color: var(--warning); }
+.ds-badge-danger { background: var(--danger-bg); color: var(--danger); }
+
+/* --- Tabs --- */
+.ds-tabs {
+  display: flex;
+  gap: var(--sp-6);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+}
+.ds-tab {
+  padding: 12px 2px;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: inherit;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.ds-tab-active { color: var(--text-primary); font-weight: 700; border-bottom-color: var(--tenant-primary); }
+.ds-tab:hover { color: var(--text-primary); }
+
+/* --- Modal / bottom sheet --- */
+.ds-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 21, 28, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .ds-modal-backdrop { align-items: center; padding: var(--sp-6); }
+}
+.ds-modal {
+  background: var(--surface-1);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-6);
+  max-width: 480px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+@media (min-width: 640px) {
+  .ds-modal { border-radius: var(--r-lg); }
+}
+
+/* --- Empty state --- */
+.ds-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-9) var(--sp-6);
+  color: var(--text-secondary);
+}
+.ds-empty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+  color: var(--text-tertiary);
+  font-size: 24px;
+}
+.ds-empty-title { color: var(--text-primary); font-size: var(--fs-h3); font-weight: 600; margin: 0 0 4px; }
+
+/* --- Loading skeleton --- */
+@keyframes ds-shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+.ds-skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--border-subtle) 37%, var(--surface-2) 63%);
+  background-size: 400px 100%;
+  animation: ds-shimmer 1.6s infinite linear;
+  border-radius: var(--r-md);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-skeleton { animation: none; background: var(--surface-2); }
+}
+
+/* --- Signature motif: subtle geometric (khatam-star) pattern —
+   used sparingly on hero banners/empty states/login only, never
+   behind body text, opacity kept low by design. Approved as-is. --- */
+.ds-motif-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.10;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='white' stroke-width='1'><path d='M60 8 L96 34 L84 76 L36 76 L24 34 Z'/><path d='M60 30 L78 44 L71 66 L49 66 L42 44 Z'/><circle cx='60' cy='60' r='52'/></g></svg>");
+  background-size: 120px 120px;
+}
+.ds-motif-bg-dark {
+  filter: invert(1);
+}
+
+/* --- Admin sidebar (fixed dark neutral, non-theme-aware by design) --- */
+.ds-admin-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.ds-admin-sidebar-link-active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- Typography helpers --- */
+.ds-display { font-size: var(--fs-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.ds-h1 { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; }
+.ds-h2 { font-size: var(--fs-h2); font-weight: 600; line-height: 1.3; }
+.ds-h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.35; }
+.ds-body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-body); }
+.ds-caption { font-size: var(--fs-caption); color: var(--text-secondary); }
+.ds-micro { font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-tertiary); }

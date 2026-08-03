@@ -1,0 +1,88 @@
+{
+  "prayers": [
+    {
+      "name": "Fajr",
+      "rakat_text": "2 Sunnah, 2 Fard",
+      "time_label": "Dawn"
+    },
+    {
+      "name": "Dhuhr",
+      "rakat_text": "4 Sunnah, 4 Fard, 2 Sunnah, 2 Nafl",
+      "time_label": "Noon"
+    },
+    {
+      "name": "Asr",
+      "rakat_text": "4 Sunnah, 4 Fard",
+      "time_label": "Afternoon"
+    },
+    {
+      "name": "Maghrib",
+      "rakat_text": "3 Fard, 2 Sunnah",
+      "time_label": "Sunset"
+    },
+    {
+      "name": "Isha",
+      "rakat_text": "4 Sunnah, 4 Fard, 2 Sunnah, 2 Nafl, 3 Witr",
+      "time_label": "Night"
+    }
+  ],
+  "namaz_lessons": [
+    {
+      "title": "Sana",
+      "arabic": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ",
+      "translation": "\"Glory be to You, O Allah, and all praise is Yours, and blessed is Your name.\""
+    },
+    {
+      "title": "Al-Fatiha",
+      "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ",
+      "translation": "\"Praise be to Allah, Lord of all the worlds, the Most Gracious, the Most Merciful, Master of the Day of Judgment.\""
+    },
+    {
+      "title": "Tasbih of Ruku",
+      "arabic": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
+      "translation": "\"Glory be to my Lord, the Most Great.\" (recited 3 times while bowing)"
+    },
+    {
+      "title": "Tasbih of Sajdah",
+      "arabic": "سُبْحَانَ رَبِّيَ الْأَعْلَى",
+      "translation": "\"Glory be to my Lord, the Most High.\" (recited 3 times in prostration)"
+    },
+    {
+      "title": "Durood Ibrahim",
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ",
+      "translation": "\"O Allah, send blessings upon Muhammad and the family of Muhammad.\" — recited in the final sitting."
+    }
+  ],
+  "how_to_perform": [
+    {
+      "step": 1,
+      "title": "Niyyah (Intention)",
+      "desc": "Stand straight facing the Qibla and make your intention in your heart for the specific prayer."
+    },
+    {
+      "step": 2,
+      "title": "Takbiratul Ihram",
+      "desc": "Raise your hands to your ears and say \"Allahu Akbar\" to enter the state of prayer."
+    },
+    {
+      "step": 3,
+      "title": "Qiyam (Standing)",
+      "desc": "Recite Sana, Ta'awwuz, Bismillah, Al-Fatiha, and a Surah from the Quran."
+    },
+    {
+      "step": 4,
+      "title": "Ruku (Bowing)",
+      "desc": "Bow with your back straight, hands on knees, and recite \"Subhana Rabbiyal Azim\" three times."
+    },
+    {
+      "step": 5,
+      "title": "Sajdah (Prostration)",
+      "desc": "Place forehead, nose, palms, knees, and toes on the ground and recite \"Subhana Rabbiyal A'la\" three times — twice with a short sitting in between."
+    },
+    {
+      "step": 6,
+      "title": "Tashahhud &amp; Salam",
+      "desc": "In the final sitting, recite At-Tahiyyat, Durood, and Dua, then turn your face right then left saying \"Assalamu Alaikum wa Rahmatullah\" to end the prayer."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "excludedFiles": ["src/app/api/platform-admin/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/service-role", "**/lib/supabase/service-role"],
+                "message": "service-role.ts (the service_role / RLS-bypass Supabase client) may only be imported from route handlers under src/app/api/platform-admin/**. Importing it anywhere else defeats tenant isolation — use the anon-key server/browser client instead (@/lib/supabase/server or @/lib/supabase/client)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

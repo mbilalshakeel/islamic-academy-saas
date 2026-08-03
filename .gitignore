@@ -1,0 +1,19 @@
+# dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+.cache/
+*.tsbuildinfo
+
+# misc
+*.log
+/tmp/
+
+# env files (secrets)
+.env
+.env.*
+.env*.local

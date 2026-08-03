@@ -1,0 +1,306 @@
+<div class="screen" id="screen-prayers">
+
+  <!-- Top AppBar -->
+  <header class="sticky top-0 z-50 w-full h-16 bg-surface flex items-center justify-between px-container-padding shadow-sm">
+    <div class="flex items-center gap-3">
+      <button onclick="showScreen('screen-home')" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-low active:opacity-70">
+        <span class="material-symbols-outlined text-primary">arrow_back</span>
+      </button>
+      <h1 class="font-headline-sm text-headline-sm font-bold text-primary">Prayers</h1>
+    </div>
+  </header>
+
+  <main class="px-container-padding space-y-lg py-lg pb-16">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden rounded-xl bg-primary-container p-lg text-on-primary-container shadow-md">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg fill="none" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <pattern height="40" id="prayers-pattern" patternUnits="userSpaceOnUse" width="40" x="0" y="0">
+            <path d="M20 0L24.4903 15.5097L40 20L24.4903 24.4903L20 40L15.5097 24.4903L0 20L15.5097 15.5097L20 0Z" fill="currentColor"></path>
+          </pattern>
+          <rect fill="url(#prayers-pattern)" height="100%" width="100%"></rect>
+        </svg>
+      </div>
+      <div class="relative z-10">
+        <h2 class="font-headline-lg text-headline-lg mb-xs text-white">Learn &amp; Perform</h2>
+        <p class="font-body-lg text-body-lg text-white/90 max-w-xs">Master the sacred pillars of prayer with guided wisdom and peace.</p>
+      </div>
+    </section>
+
+    <!-- Main Cards -->
+    <div class="flex flex-col gap-md">
+
+      <!-- Wudu Card -->
+      <button onclick="openPrayerModal('modal-wudu')" class="w-full text-left bg-surface-container-low p-lg rounded-xl flex items-center gap-lg hover:shadow-md transition-all active:scale-[0.98] group">
+        <div class="bg-primary-container text-white w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:rotate-6 transition-transform">
+          <span class="material-symbols-outlined text-4xl">water_drop</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Wudu (Ablution)</h3>
+          <p class="text-on-surface-variant font-body-md">Step-by-step purification guide.</p>
+        </div>
+        <span class="material-symbols-outlined text-outline">chevron_right</span>
+      </button>
+
+      <!-- Namaz Card -->
+      <button onclick="openPrayerModal('modal-namaz')" class="w-full text-left bg-surface-container-low p-lg rounded-xl flex items-center gap-lg hover:shadow-md transition-all active:scale-[0.98] group border-t-4 border-primary">
+        <div class="bg-primary-container text-white w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-4xl">mosque</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Namaz (Salah)</h3>
+          <p class="text-on-surface-variant font-body-md">Daily prayers, lessons, and methods.</p>
+        </div>
+        <span class="material-symbols-outlined text-outline">chevron_right</span>
+      </button>
+
+      <!-- Other Prayers Card -->
+      <button onclick="openPrayerModal('modal-others')" class="w-full text-left bg-surface-container-low p-lg rounded-xl flex items-center gap-lg hover:shadow-md transition-all active:scale-[0.98] group">
+        <div class="bg-secondary-container text-on-secondary-container w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:-rotate-6 transition-transform">
+          <span class="material-symbols-outlined text-4xl">bedtime</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Other Prayers</h3>
+          <p class="text-on-surface-variant font-body-md">Jumu'ah, Eid, Tarawih, and more.</p>
+        </div>
+        <span class="material-symbols-outlined text-outline">chevron_right</span>
+      </button>
+
+    </div>
+  </main>
+</div>
+
+
+<!-- WUDU MODAL -->
+<div class="fixed inset-0 z-[100] hidden" id="modal-wudu">
+  <div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm" onclick="closePrayerModal('modal-wudu')"></div>
+  <div class="absolute bottom-0 left-0 right-0 max-h-[85vh] bg-surface rounded-t-xl flex flex-col overflow-hidden prayer-sheet">
+    <div class="p-lg flex items-center justify-between border-b border-outline-variant/20 flex-shrink-0">
+      <h4 class="font-headline-sm text-headline-sm text-primary">Wudu Guide</h4>
+      <button onclick="closePrayerModal('modal-wudu')" class="p-sm text-outline hover:text-primary">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-lg space-y-lg">
+
+      <div class="bg-surface-container-low rounded-xl p-lg text-center">
+        <p class="font-arabic-body text-arabic-body mb-sm" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        <p class="text-on-surface-variant font-body-md italic">"In the name of Allah, the Most Gracious, the Most Merciful." — begin every Wudu with this intention.</p>
+      </div>
+
+      <div class="space-y-md" id="wudu-steps-container"></div>
+
+      <div class="bg-tertiary-container/10 border border-tertiary-container/30 rounded-xl p-lg text-center">
+        <p class="font-arabic-body text-arabic-body mb-sm text-tertiary" dir="rtl">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</p>
+        <p class="text-on-surface-variant font-body-md italic">Recite the Shahada after completing Wudu for added reward.</p>
+      </div>
+
+    </div>
+    <div class="p-lg bg-surface-container border-t border-outline-variant/20 flex-shrink-0">
+      <button onclick="closePrayerModal('modal-wudu')" class="w-full py-md bg-primary text-white rounded-xl font-headline-sm shadow-md hover:opacity-90 transition-opacity">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAMAZ MODAL -->
+<div class="fixed inset-0 z-[100] hidden" id="modal-namaz">
+  <div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm" onclick="closePrayerModal('modal-namaz')"></div>
+  <div class="absolute bottom-0 left-0 right-0 max-h-[88vh] bg-surface rounded-t-xl flex flex-col prayer-sheet">
+    <div class="p-lg flex items-center justify-between border-b border-outline-variant/20 flex-shrink-0">
+      <h4 class="font-headline-sm text-headline-sm text-primary">Namaz (Salah)</h4>
+      <button onclick="closePrayerModal('modal-namaz')" class="p-sm text-outline hover:text-primary">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="flex border-b border-outline-variant/20 px-container-padding gap-lg overflow-x-auto whitespace-nowrap no-scrollbar flex-shrink-0">
+      <button class="namaz-tab-btn py-lg border-b-2 border-primary text-primary font-bold" onclick="switchNamazTab('daily-prayers', this)">Daily Prayers</button>
+      <button class="namaz-tab-btn py-lg border-b-2 border-transparent text-outline font-bold" onclick="switchNamazTab('namaz-lessons', this)">Namaz Lesson</button>
+      <button class="namaz-tab-btn py-lg border-b-2 border-transparent text-outline font-bold" onclick="switchNamazTab('how-to-perform', this)">How to Perform</button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-lg">
+
+      <!-- Daily Prayers View -->
+      <div class="namaz-tab-content space-y-md" id="daily-prayers">
+        <div class="bg-surface-container-low p-md rounded-xl flex justify-between items-center border-l-4 border-secondary">
+          <div>
+            <h6 class="font-headline-sm">Fajr</h6>
+            <span class="text-label-sm text-outline">2 Sunnah, 2 Fard</span>
+          </div>
+          <span class="bg-secondary-container text-white px-md py-xs rounded-full text-label-sm">Dawn</span>
+        </div>
+        <div class="bg-surface-container-low p-md rounded-xl flex justify-between items-center border-l-4 border-primary">
+          <div>
+            <h6 class="font-headline-sm">Dhuhr</h6>
+            <span class="text-label-sm text-outline">4 Sunnah, 4 Fard, 2 Sunnah, 2 Nafl</span>
+          </div>
+          <span class="bg-primary-container text-white px-md py-xs rounded-full text-label-sm">Noon</span>
+        </div>
+        <div class="bg-surface-container-low p-md rounded-xl flex justify-between items-center border-l-4 border-tertiary">
+          <div>
+            <h6 class="font-headline-sm">Asr</h6>
+            <span class="text-label-sm text-outline">4 Sunnah, 4 Fard</span>
+          </div>
+          <span class="bg-tertiary-container text-white px-md py-xs rounded-full text-label-sm">Afternoon</span>
+        </div>
+        <div class="bg-surface-container-low p-md rounded-xl flex justify-between items-center border-l-4 border-secondary">
+          <div>
+            <h6 class="font-headline-sm">Maghrib</h6>
+            <span class="text-label-sm text-outline">3 Fard, 2 Sunnah</span>
+          </div>
+          <span class="bg-secondary-container text-white px-md py-xs rounded-full text-label-sm">Sunset</span>
+        </div>
+        <div class="bg-surface-container-low p-md rounded-xl flex justify-between items-center border-l-4 border-primary">
+          <div>
+            <h6 class="font-headline-sm">Isha</h6>
+            <span class="text-label-sm text-outline">4 Sunnah, 4 Fard, 2 Sunnah, 2 Nafl, 3 Witr</span>
+          </div>
+          <span class="bg-primary-container text-white px-md py-xs rounded-full text-label-sm">Night</span>
+        </div>
+      </div>
+
+      <!-- Namaz Lessons View -->
+      <div class="namaz-tab-content hidden space-y-md" id="namaz-lessons">
+        <div class="text-center p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+          <h6 class="font-headline-sm text-primary mb-md">Sana</h6>
+          <p class="font-arabic-display text-arabic-display mb-md" dir="rtl">سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ</p>
+          <p class="text-on-surface-variant font-body-md italic">"Glory be to You, O Allah, and all praise is Yours, and blessed is Your name."</p>
+        </div>
+        <div class="text-center p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+          <h6 class="font-headline-sm text-primary mb-md">Al-Fatiha</h6>
+          <p class="font-arabic-display text-arabic-display mb-md leading-loose" dir="rtl">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ</p>
+          <p class="text-on-surface-variant font-body-md italic">"Praise be to Allah, Lord of all the worlds, the Most Gracious, the Most Merciful, Master of the Day of Judgment."</p>
+        </div>
+        <div class="text-center p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+          <h6 class="font-headline-sm text-primary mb-md">Tasbih of Ruku</h6>
+          <p class="font-arabic-display text-arabic-display mb-md" dir="rtl">سُبْحَانَ رَبِّيَ الْعَظِيمِ</p>
+          <p class="text-on-surface-variant font-body-md italic">"Glory be to my Lord, the Most Great." (recited 3 times while bowing)</p>
+        </div>
+        <div class="text-center p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+          <h6 class="font-headline-sm text-primary mb-md">Tasbih of Sajdah</h6>
+          <p class="font-arabic-display text-arabic-display mb-md" dir="rtl">سُبْحَانَ رَبِّيَ الْأَعْلَى</p>
+          <p class="text-on-surface-variant font-body-md italic">"Glory be to my Lord, the Most High." (recited 3 times in prostration)</p>
+        </div>
+        <div class="text-center p-lg bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+          <h6 class="font-headline-sm text-primary mb-md">Durood Ibrahim</h6>
+          <p class="font-arabic-display text-arabic-display mb-md leading-loose" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+          <p class="text-on-surface-variant font-body-md italic">"O Allah, send blessings upon Muhammad and the family of Muhammad." — recited in the final sitting.</p>
+        </div>
+      </div>
+
+      <!-- How to Perform View -->
+      <div class="namaz-tab-content hidden space-y-md" id="how-to-perform">
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Niyyah (Intention)</h6>
+            <p class="text-body-md text-on-surface-variant">Stand straight facing the Qibla and make your intention in your heart for the specific prayer.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Takbiratul Ihram</h6>
+            <p class="text-body-md text-on-surface-variant">Raise your hands to your ears and say "Allahu Akbar" to enter the state of prayer.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Qiyam (Standing)</h6>
+            <p class="text-body-md text-on-surface-variant">Recite Sana, Ta'awwuz, Bismillah, Al-Fatiha, and a Surah from the Quran.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Ruku (Bowing)</h6>
+            <p class="text-body-md text-on-surface-variant">Bow with your back straight, hands on knees, and recite "Subhana Rabbiyal Azim" three times.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Sajdah (Prostration)</h6>
+            <p class="text-body-md text-on-surface-variant">Place forehead, nose, palms, knees, and toes on the ground and recite "Subhana Rabbiyal A'la" three times — twice with a short sitting in between.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-md bg-surface-container-low rounded-xl p-md">
+          <div class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center font-bold flex-shrink-0">6</div>
+          <div>
+            <h6 class="font-headline-sm text-primary mb-1">Tashahhud &amp; Salam</h6>
+            <p class="text-body-md text-on-surface-variant">In the final sitting, recite At-Tahiyyat, Durood, and Dua, then turn your face right then left saying "Assalamu Alaikum wa Rahmatullah" to end the prayer.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- OTHER PRAYERS MODAL -->
+<div class="fixed inset-0 z-[100] hidden" id="modal-others">
+  <div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm" onclick="closePrayerModal('modal-others')"></div>
+  <div class="absolute bottom-0 left-0 right-0 max-h-[80vh] bg-surface rounded-t-xl flex flex-col prayer-sheet">
+    <div class="p-lg flex items-center justify-between border-b border-outline-variant/20 flex-shrink-0">
+      <h4 class="font-headline-sm text-headline-sm text-primary">Special Prayers</h4>
+      <button onclick="closePrayerModal('modal-others')" class="p-sm text-outline hover:text-primary">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="p-lg grid grid-cols-2 gap-md overflow-y-auto">
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-sm">
+          <span class="material-symbols-outlined text-3xl">groups</span>
+        </div>
+        <h6 class="font-headline-sm">Jumu'ah</h6>
+        <p class="text-label-sm text-outline">Friday Prayer</p>
+      </div>
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary mb-sm">
+          <span class="material-symbols-outlined text-3xl">celebration</span>
+        </div>
+        <h6 class="font-headline-sm">Eid Salah</h6>
+        <p class="text-label-sm text-outline">Festive Prayer</p>
+      </div>
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary mb-sm">
+          <span class="material-symbols-outlined text-3xl">nightlight</span>
+        </div>
+        <h6 class="font-headline-sm">Tarawih</h6>
+        <p class="text-label-sm text-outline">Ramadan Night</p>
+      </div>
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-error/10 rounded-full flex items-center justify-center text-error mb-sm">
+          <span class="material-symbols-outlined text-3xl">church</span>
+        </div>
+        <h6 class="font-headline-sm">Janazah</h6>
+        <p class="text-label-sm text-outline">Funeral Prayer</p>
+      </div>
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-sm">
+          <span class="material-symbols-outlined text-3xl">dark_mode</span>
+        </div>
+        <h6 class="font-headline-sm">Tahajjud</h6>
+        <p class="text-label-sm text-outline">Night Vigil Prayer</p>
+      </div>
+      <div class="bg-surface-container-low p-lg rounded-xl flex flex-col items-center text-center gap-sm active:scale-95 transition-transform">
+        <div class="w-12 h-12 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary mb-sm">
+          <span class="material-symbols-outlined text-3xl">brightness_3</span>
+        </div>
+        <h6 class="font-headline-sm">Witr</h6>
+        <p class="text-label-sm text-outline">Closing Night Prayer</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT — Router + Para List
+════════════════════════════════════════ -->
+<script>
+  // ── Simple screen router ──────────────────
+  function showScreen(id) {
