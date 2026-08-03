@@ -138,6 +138,29 @@ export default function ThemeCustomizerPage() {
     setSavedAt(new Date());
   }
 
+  async function handleGenerateIcons() {
+    setGeneratingIcons(true);
+    setError(null);
+    setIconsGeneratedMsg(null);
+
+    try {
+      const res = await fetch("/api/tenant-admin/branding/generate-icons", { method: "POST" });
+      const body = await res.json();
+
+      if (!res.ok) {
+        setError(body.error || "Failed to generate PWA icons");
+        return;
+      }
+
+      const generated = body.icons?.length ?? 0;
+      setIconsGeneratedMsg(`Generated ${generated} PWA icon(s).`);
+    } catch (err) {
+      setError("Failed to generate PWA icons: " + (err instanceof Error ? err.message : String(err)));
+    } finally {
+      setGeneratingIcons(false);
+    }
+  }
+
   if (loading || !branding) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ color: "var(--text-tertiary)" }}>
