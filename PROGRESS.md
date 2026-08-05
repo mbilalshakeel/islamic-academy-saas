@@ -7,6 +7,24 @@
 
 ## 1. Last Completed Step
 
+### PRODUCTION DEPLOYMENT (Supabase) — STARTED (2026-08-05)
+- **Hosted Supabase project `ici-platform` connected** (ref `onybufoebaebfnwshagd`) via
+  user's Management API Access Token (used inline, never stored/committed).
+- **All 28 migrations applied in order** via Management API SQL endpoint.
+  Verified: 29 public tables, RLS enabled on tenants/users/platform_admins, storage
+  bucket `branding-assets` created, custom_access_token_hook function present.
+- **Template tenant auto-seeded** (migration 014): ID
+  `00000000-0000-0000-0000-000000000001`, "Islamic Coaching Institute (Template)",
+  full content verified (2 Quran editions, 60 paras, 196 divine names, 40 hadiths).
+- **Platform super admin created**: `superadmin@ici-platform.test` (auth user + row in
+  `platform_admins` as `super_admin`).
+- **OPEN ITEM (required):** the custom_access_token_hook is NOT enabled in GoTrue on
+  the hosted project. The function exists but GoTrue isn't calling it (verified: login
+  JWT lacks `is_platform_admin`/`tenant_id` claims). Must be enabled in the Supabase
+  Dashboard: Auth → Hooks → "Customize Access Token (JWT) Claims" → Enable → URI
+  `pg-functions://postgres/public/custom_access_token_hook`. Without this, tenant-admin
+  and platform-admin logins get no RBAC claims and the panels won't work.
+
 ### PART 2 (WEB SAAS PLATFORM) — 100% DONE ✅ (2026-08-05)
 - **`apple-touch-icon` fix applied + verified** in
   `src/app/t/[slug]/(public)/layout.tsx` — per-tenant 192px PWA icon is now
@@ -87,11 +105,10 @@ stack + local Next.js production server. All sub-steps proven with real output:
 
 ## 6. Literal Next Step Expected From Me
 
-1. ✅ **Commit + push** the apple-touch-icon fix + .env.example + PROGRESS.md.
-2. **Part 2 complete.** Await deployment instructions from the user (they create
-   hosted Supabase + Vercel accounts). When ready:
-   - Set env vars (see .env.example) in production.
-   - New Supabase project → run supabase/migrations in order → template tenant
-     auto-seeded (migration 014) → `seed_tenant_defaults()` per new tenant.
-   - Deploy Next.js to Vercel.
-3. Do NOT start Flutter until explicitly instructed.
+1. ✅ Commit + push apple-touch-icon fix + .env.example + PROGRESS.md (done earlier).
+2. **Deployment status:** 28 migrations applied to hosted `ici-platform`; template
+   tenant + super admin created. **NEXT: user must enable the custom_access_token_hook
+   in Supabase Dashboard (Auth → Hooks).** After that, user creates first test tenant
+   via Super Admin Panel (`/platform-admin/login`).
+3. Remaining deployment: deploy Next.js to Vercel (env vars from .env.example).
+4. Do NOT start Flutter until explicitly instructed.
