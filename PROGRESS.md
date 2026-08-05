@@ -7,6 +7,20 @@
 
 ## 1. Last Completed Step
 
+### PRODUCTION DEPLOYMENT (Supabase) — SUPER ADMIN PANEL VERIFIED + TEST TENANT CREATED (2026-08-05)
+- **Auth hook verified working:** login as `superadmin@ici-platform.test` → JWT claims
+  decoded → `is_platform_admin: true`, `tenant_id: null` ✅.
+- **Super Admin Panel verified end-to-end** against the production project:
+  - `/platform-admin/login` + `/api/platform-admin/login` → `ok:true` (session cookie set).
+  - `/platform-admin/dashboard` + `/api/platform-admin/tenants` → shows template tenant.
+  - **Created real test tenant "Test Academy"** slug `test-academy`, plan `trial`,
+    admin `testadmin@test-academy.com` → UUID **`a94ddfee-879c-4367-ab79-f0d1b79160b5`**.
+  - Seeded content verified: **196 divine names, 40 hadiths, 45 duas, 2 quran editions,
+    60 paras, 5 pillars, 5 prayers, 15 Q&A, 19 home menu items, 3 books, 13 calendar
+    events, 10 contact channels, 6 dhikr items**. Admin user linked as `owner`.
+- **Note:** tenant-creation invite email requires a valid email domain (`.test` TLD is
+  rejected by GoTrue). Used `.com` in the test.
+
 ### PRODUCTION DEPLOYMENT (Supabase) — STARTED (2026-08-05)
 - **Hosted Supabase project `ici-platform` connected** (ref `onybufoebaebfnwshagd`) via
   user's Management API Access Token (used inline, never stored/committed).
@@ -105,10 +119,9 @@ stack + local Next.js production server. All sub-steps proven with real output:
 
 ## 6. Literal Next Step Expected From Me
 
-1. ✅ Commit + push apple-touch-icon fix + .env.example + PROGRESS.md (done earlier).
-2. **Deployment status:** 28 migrations applied to hosted `ici-platform`; template
-   tenant + super admin created. **NEXT: user must enable the custom_access_token_hook
-   in Supabase Dashboard (Auth → Hooks).** After that, user creates first test tenant
-   via Super Admin Panel (`/platform-admin/login`).
-3. Remaining deployment: deploy Next.js to Vercel (env vars from .env.example).
+1. ✅ Auth hook enabled by user; verified working (JWT claims correct).
+2. ✅ Super Admin Panel verified; real test tenant "Test Academy" created + seeded.
+3. **NEXT (final step):** Vercel deployment of the Next.js app. User will provide
+   Vercel access / a way to deploy. Env vars needed (from .env.example): the hosted
+   Supabase URL, anon key, service_role key, JWT secret, APP_BASE_DOMAIN, CRON_SECRET.
 4. Do NOT start Flutter until explicitly instructed.
