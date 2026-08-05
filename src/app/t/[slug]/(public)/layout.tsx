@@ -18,6 +18,16 @@ export default async function PublicTenantLayout({
     .eq("section", "nav")
     .order("sort_order", { ascending: true });
 
+  // Pick the closest PWA icon size to Apple's recommended 180x180 so iOS
+  // home-screen bookmarks get a crisp per-tenant icon. Falls back to the
+  // tenant's logo if no generated PWA icon exists yet.
+  const { data: pwaIcons } = await supabase
+    .from("tenant_pwa_icons")
+    .select("size, url")
+    .order("size", { ascending: true });
+  const preferred = (pwaIcons || []).find((i) => i.size === 192) ?? (pwaIcons || [])[0];
+  const appleTouchIconUrl = preferred?.url || branding?.logo_url || undefined;
+
   const fontsHref = buildGoogleFontsHref([
     branding?.ui_font ?? "Inter",
     branding?.arabic_font ?? "Amiri",
@@ -32,6 +42,9 @@ export default async function PublicTenantLayout({
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content={branding?.short_name ?? tenant.name} />
+      {appleTouchIconUrl && (
+        <link rel="apple-touch-icon" href={appleTouchIconUrl} />
+      )}
       <PwaRegistrar slug={tenant.slug} />
       <ThemeStyleTag
         primaryColor={branding?.primary_color_hex ?? "#0284C7"}

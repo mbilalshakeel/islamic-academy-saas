@@ -7,6 +7,13 @@
 
 ## 1. Last Completed Step
 
+### PART 2 (WEB SAAS PLATFORM) — 100% DONE ✅ (2026-08-05)
+- **`apple-touch-icon` fix applied + verified** in
+  `src/app/t/[slug]/(public)/layout.tsx` — per-tenant 192px PWA icon is now
+  served as `<link rel="apple-touch-icon">`. Confirmed in served HTML for both
+  tenants (each points to its own icon-192.png). Build + eslint clean.
+- Added **`.env.example`** with every required env var + production notes.
+
 ### PWA PHASE VERIFICATION — COMPLETE ✅ (2026-08-05)
 Full end-to-end PWA proof ran and **PASSED** against a Docker-based local Supabase
 stack + local Next.js production server. All sub-steps proven with real output:
@@ -40,13 +47,12 @@ stack + local Next.js production server. All sub-steps proven with real output:
 
 ## 2. Currently In-Progress / Open Items
 
-- **GAP: `<link rel="apple-touch-icon">` is MISSING** from the public layout
-  (`src/app/t/[slug]/(public)/layout.tsx`). Present: manifest, theme-color, Apple
-  mobile-web-app-capable/status-bar/title meta. This is a minor iOS home-screen
-  nicety, not required for Chrome installability. Consider adding it later.
-- **Lighthouse PWA category removed in v12.** To run the classic automated PWA
-  installability audit you'd need to pin an older Lighthouse (<10) or manually
-  assert the criteria (done above). No action currently blocking.
+- **Part 2 (Web SaaS platform) is COMPLETE.** apple-touch-icon added, Lighthouse
+  manual-verification accepted. Open items below are for the NEXT phase
+  (production deployment), not blockers.
+- **Next phase: PRODUCTION DEPLOYMENT** (separate work). Requires real hosted
+  accounts (Supabase project + Vercel). See .env.example for required env vars.
+- **Flutter mobile app is a LATER phase** — NOT started, do not begin yet.
 
 ## 3. Verified-Working Checklist
 
@@ -81,8 +87,11 @@ stack + local Next.js production server. All sub-steps proven with real output:
 
 ## 6. Literal Next Step Expected From Me
 
-1. **Commit + push** this PWA verification (PROGRESS.md, scripts, screenshots).
-2. Decide on the two open items: add `apple-touch-icon` to the public layout (small,
-   recommended), and whether to pin an older Lighthouse for the classic PWA audit.
-3. Next major phase after PWA: production deployment (Supabase project + Vercel),
-   then the separate Flutter mobile app phase.
+1. ✅ **Commit + push** the apple-touch-icon fix + .env.example + PROGRESS.md.
+2. **Part 2 complete.** Await deployment instructions from the user (they create
+   hosted Supabase + Vercel accounts). When ready:
+   - Set env vars (see .env.example) in production.
+   - New Supabase project → run supabase/migrations in order → template tenant
+     auto-seeded (migration 014) → `seed_tenant_defaults()` per new tenant.
+   - Deploy Next.js to Vercel.
+3. Do NOT start Flutter until explicitly instructed.
