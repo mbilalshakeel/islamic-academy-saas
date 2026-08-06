@@ -125,3 +125,16 @@ stack + local Next.js production server. All sub-steps proven with real output:
    Vercel access / a way to deploy. Env vars needed (from .env.example): the hosted
    Supabase URL, anon key, service_role key, JWT secret, APP_BASE_DOMAIN, CRON_SECRET.
 4. Do NOT start Flutter until explicitly instructed.
+
+### PRODUCTION SMOKE TEST — COMPLETE (2026-08-06) — DEPLOYED & VERIFIED LIVE
+- **Vercel deployment LIVE:** `https://islamic-academy-saas.vercel.app` (production), connected via Vercel API token (project `islamic-academy-saas`).
+- **Root cause fixed:** Vercel env var `SUPABASE_JWT_SECRET` was EMPTY -> public app theme/content read failed. After setting it correctly:
+  - theme-color + manifest now `#B91C1C` (matches DB), sw.js `CACHE_VERSION=3` (matches DB).
+  - Names page renders (Ar-Rahman), hadith edit live in public HTML ("PROD SMOKE TEST EDITED").
+  - dhikr-items + calendar-events public APIs return seeded data.
+- **Super Admin Panel** (production): login OK, dashboard shows both tenants (template + Test Academy), content counts correct.
+- **Institute Admin Panel** (Test Academy): login OK, theme customizer works, hadith CRUD works, edit persisted + sw_cache bumped (1->2->3), PWA icons generated (8 sizes, manifest confirms).
+- **Public app** (Test Academy): all 15 routes HTTP 200, theme applied, content live.
+- **Env vars set on Vercel:** NEXT_PUBLIC_SUPABASE_URL, ANON_KEY, SERVICE_ROLE_KEY, JWT_SECRET, APP_BASE_DOMAIN, CRON_SECRET (all production+preview).
+- **Note:** impersonation_grants created via Super Admin UI (View-as-Tenant) on demand; DB currently empty (no grant active) - expected.
+- **Note:** manifest/pages use CDN caching (max-age=60); a fresh edit shows after up to ~60s. Cache-buster query param confirms fresh data immediately.
