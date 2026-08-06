@@ -138,3 +138,27 @@ stack + local Next.js production server. All sub-steps proven with real output:
 - **Env vars set on Vercel:** NEXT_PUBLIC_SUPABASE_URL, ANON_KEY, SERVICE_ROLE_KEY, JWT_SECRET, APP_BASE_DOMAIN, CRON_SECRET (all production+preview).
 - **Note:** impersonation_grants created via Super Admin UI (View-as-Tenant) on demand; DB currently empty (no grant active) - expected.
 - **Note:** manifest/pages use CDN caching (max-age=60); a fresh edit shows after up to ~60s. Cache-buster query param confirms fresh data immediately.
+
+### PART 3 — FLUTTER MOBILE APP — SUB 1-7 BUILT, APK COMPILES (2026-08-06)
+- **Sub-1 (project + Supabase integration):** `mobile/ici_platform_app` Flutter project.
+  Supabase service (anon key, RLS), Hive CacheService, ContentService (cache-first),
+  ThemeService (dynamic branding), NotificationService (FCM scaffold), Sehri/Iftar service.
+- **Sub-2/3 (core + content screens):** Splash, Home (reading/learning grids + books
+  carousel + bottom nav), Quran (list+PDF), Qaida, Names, Duas, Hadith, Pillars, Prayers,
+  Books, Q&A, About, Contact, Tools (Sehri/Iftar, Dhikr, Hijri, Zakat), Settings.
+- **Sub-4 (theming/dark/lang):** dynamic ThemeData from tenant_branding, dark mode toggle,
+  EN/UR language switch, font-size slider.
+- **Sub-5 (offline/Hive):** content + branding + prefs cached in Hive; background
+  sw_cache_version refresh; dhikr count persisted.
+- **Sub-6 (white-label):** `lib/flavors/app_config.dart` uses --dart-define injection
+  (TENANT_ID/SLUG/APP_NAME/COLORS/LOGO/PACKAGE); `build_client.sh` helper; README documents
+  the per-client 15-min process.
+- **Sub-7 (FCM):** NotificationService scaffold (permission, token, local notifications).
+- **PROOF:** `flutter analyze` clean; **`flutter build apk --debug` SUCCEEDED** →
+  `build/app/outputs/flutter-apk/app-debug.apk` (valid APK, 97MB debug, AndroidManifest present).
+- **ENV notes:** installed Flutter 3.24.5, OpenJDK 21, Android SDK 34/35, added swap for
+  Gradle OOM; patched app_links compileSdk; removed pdfx (Flutter-engine incompatible; PDF
+  opens via url_launcher like web); enabled core-library desugaring for flutter_local_notifications;
+  upgraded AGP 8.5.2 + Gradle 8.7.
+- **Remaining:** Sub-8 (full README + deployment guide — partially done in mobile/README.md);
+  release-signing keystore; iOS build (needs macOS); run on emulator (needs device/AVD).
