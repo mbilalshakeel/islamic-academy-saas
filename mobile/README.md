@@ -139,6 +139,29 @@ Add each client's `google-services.json` / `GoogleService-Info.plist`.
 - **Signing:** environment-specific, must be managed securely per client (Android
   keystore, Apple Developer certificates).
 
+### Release signing (Android)
+
+`android/app/build.gradle` reads a `key.properties` file (gitignored) to sign the
+release build. To generate your own keystore per client:
+
+```bash
+keytool -genkeypair -v -keystore android/app/upload-keystore.jks \
+  -keyalg RSA -keysize 2048 -validity 10000 -alias upload \
+  -storepass <your-pass> -keypass <your-pass> \
+  -dname "CN=ClientName, OU=Dev, O=Org, L=City, ST=State, C=SA"
+```
+
+Then create `android/key.properties` (DO NOT commit):
+```
+storePassword=<your-pass>
+keyPassword=<your-pass>
+keyAlias=upload
+storeFile=upload-keystore.jks
+```
+
+`flutter build apk --release` will now produce a signed `app-release.apk`.
+Verify: `apksigner verify --print-certs build/app/outputs/flutter-apk/app-release.apk`
+
 ### Store submission notes (README section for reviewers)
 - Prepare 6+ screenshots (phone/tablet), app description, and a link to your privacy
   policy (required for account/notification permissions).

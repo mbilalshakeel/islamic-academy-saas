@@ -162,3 +162,13 @@ stack + local Next.js production server. All sub-steps proven with real output:
   upgraded AGP 8.5.2 + Gradle 8.7.
 - **Remaining:** Sub-8 (full README + deployment guide — partially done in mobile/README.md);
   release-signing keystore; iOS build (needs macOS); run on emulator (needs device/AVD).
+
+### PART 3 — RELEASE-SIGNED APK BUILT ✅ (2026-08-18)
+- Workspace reset caused local Flutter source/SDK loss, but GitHub (adede54) was the
+  source of truth — restored full app from origin/main.
+- Added release keystore (`android/app/upload-keystore.jks`, gitignored) + `key.properties`
+  (gitignored) + release signingConfig in build.gradle + README signing guide.
+- **PROOF: `flutter build apk --release` SUCCEEDED** → `app-release.apk` (24.7MB, signed).
+  `apksigner verify` → Signer #1 DN: CN=ICI Platform.
+- Secrets (`*.keystore`, `key.properties`) never committed.
+- Remaining optional: iOS build (macOS), emulator run (device), Firebase google-services.json per client.
