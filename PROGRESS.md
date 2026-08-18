@@ -172,3 +172,13 @@ stack + local Next.js production server. All sub-steps proven with real output:
   `apksigner verify` → Signer #1 DN: CN=ICI Platform.
 - Secrets (`*.keystore`, `key.properties`) never committed.
 - Remaining optional: iOS build (macOS), emulator run (device), Firebase google-services.json per client.
+
+### FINAL E2E VERIFICATION — TEST-READY CONFIRMED (2026-08-18)
+- Live app: https://islamic-academy-saas.vercel.app (NOT ici-platform.vercel.app, an
+  unrelated Icertis simulator — out of scope/control).
+- Verified on live app: Super Admin login+dashboard; Institute Admin login+theme+CRUD;
+  Public app 17/17 routes 200; PWA (8 icons, manifest, sw.js v3); theme #B91C1C.
+- Production Supabase: all tables + seed_tenant_defaults() + template tenant present.
+- Created + seeded second real tenant "ready-test" (id 11a90bdc-61b1-4b5d-b2a0-c98b684efa6c):
+  196 names, 40 hadiths, 60 paras, 45 duas, 15 QA, 19 menu; live at /t/ready-test (HTTP 200).
+- Email invite rate-limited by GoTrue temporarily (not a schema error); tenant+seed done via SQL.
